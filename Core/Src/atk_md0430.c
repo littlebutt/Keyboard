@@ -42,8 +42,10 @@ static inline uint16_t atk_md0430_get_chip_id(void)
     atk_md0430_fsmc_write_reg(0xF004, 0x0001);
     
     atk_md0430_fsmc_write_cmd(0xC500);
+    HAL_Delay(200);
     chip_id = atk_md0430_fsmc_read_dat() << 8;
     atk_md0430_fsmc_write_cmd(0xC501);
+    HAL_Delay(200);
     chip_id |= (atk_md0430_fsmc_read_dat()) & 0x00FF;
 
     if (chip_id != ATK_MD0430_CHIP_ID1)
