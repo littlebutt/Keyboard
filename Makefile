@@ -31,6 +31,12 @@ OPT = -Og
 # Build path
 BUILD_DIR = build
 
+
+#######################################
+# lvgl
+#######################################
+include lvgl/lvgl.mk
+
 ######################################
 # source
 ######################################
@@ -42,6 +48,7 @@ Core/Src/atk_md0430_fsmc.c \
 Core/Src/atk_md0430_touch_iic.c \
 Core/Src/atk_md0430_touch.c \
 Core/Src/delay.c \
+Core/Src/display.c \
 Core/Src/stm32f1xx_it.c \
 Core/Src/stm32f1xx_hal_msp.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c \
@@ -64,13 +71,14 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_nand.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pccard.c
 
+C_SOURCES += $(LVGL_CSRCS)
+
 # ASM sources
 ASM_SOURCES =  \
 startup_stm32f103xe.s
 
 # ASM sources
-ASMM_SOURCES = 
-
+ASMM_SOURCES = $(LVGL_ASRCS)
 
 #######################################
 # binaries
@@ -132,7 +140,11 @@ C_INCLUDES =  \
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
+ASFLAGS += $(LVGL_AFLAGS)
+
 CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+
+CFLAGS += $(LVGL_CFLAGS)
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2

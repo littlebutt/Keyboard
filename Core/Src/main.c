@@ -24,6 +24,8 @@
 #include <math.h>
 #include "atk_md0430_touch.h"
 #include "delay.h"
+
+#include "display.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -213,7 +215,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  display_init();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -249,6 +251,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  /* Change Active Screen's background color */
+  lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x003a57), LV_PART_MAIN);
+  lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff), LV_PART_MAIN);
+
+  lv_obj_t * spinner = lv_spinner_create(lv_screen_active());
+  lv_obj_set_size(spinner, 64, 64);
+  lv_obj_align(spinner, LV_ALIGN_BOTTOM_MID, 0, 0);
   while (1)
   {
     demo_show_cube();
