@@ -20,11 +20,11 @@ display_ctx display_init()
     lv_init();
     lv_tick_set_cb(HAL_GetTick);
     display_ctx ctx = {0};
-    ctx.width = 400;
+    ctx.width = 480;
     ctx.height = 800;
-    ctx.main_display = lv_display_create(400, 800);
-    char buf[ctx.width * ctx.height * lv_color_format_get_size(lv_display_get_color_format(ctx.main_display))];
-    lv_display_set_buffers(ctx.main_display, buf, NULL, sizeof(buf), LV_DISPLAY_RENDER_MODE_FULL);
+    ctx.main_display = lv_display_create(480, 800);
+    static lv_color_t buf[480 * 20];
+    lv_display_set_buffers(ctx.main_display, buf, NULL, sizeof(buf), LV_DISPLAY_RENDER_MODE_PARTIAL);
     lv_display_set_flush_cb(ctx.main_display, _flush_cb);
     return ctx;
 }

@@ -240,12 +240,12 @@ int main(void)
       }
   }
   
-  /* ATK-MD0430模块LCD清屏 */
-  atk_md0430_clear(ATK_MD0430_BLUE);
-  /* ATK-MD0430模块LCD显示字符串 */
-  atk_md0430_show_string(10, 10, ATK_MD0430_LCD_WIDTH, 32, "STM32", ATK_MD0430_LCD_FONT_32, ATK_MD0430_RED);
-  atk_md0430_show_string(10, 42, ATK_MD0430_LCD_WIDTH, 24, "ATK-MD0430", ATK_MD0430_LCD_FONT_24, ATK_MD0430_RED);
-  atk_md0430_show_string(10, 66, ATK_MD0430_LCD_WIDTH, 16, "ATOM@ALIENTEK", ATK_MD0430_LCD_FONT_16, ATK_MD0430_RED);
+  // /* ATK-MD0430模块LCD清屏 */
+  // atk_md0430_clear(ATK_MD0430_BLUE);
+  // /* ATK-MD0430模块LCD显示字符串 */
+  // atk_md0430_show_string(10, 10, ATK_MD0430_LCD_WIDTH, 32, "STM32", ATK_MD0430_LCD_FONT_32, ATK_MD0430_RED);
+  // atk_md0430_show_string(10, 42, ATK_MD0430_LCD_WIDTH, 24, "ATK-MD0430", ATK_MD0430_LCD_FONT_24, ATK_MD0430_RED);
+  // atk_md0430_show_string(10, 66, ATK_MD0430_LCD_WIDTH, 16, "ATOM@ALIENTEK", ATK_MD0430_LCD_FONT_16, ATK_MD0430_RED);
   
   /* USER CODE END 2 */
 
@@ -260,7 +260,8 @@ int main(void)
   lv_obj_align(spinner, LV_ALIGN_BOTTOM_MID, 0, 0);
   while (1)
   {
-    demo_show_cube();
+    // demo_show_cube();
+    lv_timer_handler();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
