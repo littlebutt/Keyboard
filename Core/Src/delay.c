@@ -8,7 +8,6 @@ void delay_init()
     DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 }
 
-// XXX
 void delay_us(uint32_t nus)
 {
     uint32_t start = DWT->CYCCNT;

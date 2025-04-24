@@ -86,29 +86,29 @@ typedef enum
 #define ATK_MD0430_EINVAL       2
 
 
-uint8_t atk_md0430_init(void);                                                                                                                          /* ATK-MD0430模锟斤拷锟绞硷拷锟� */
-uint16_t atk_md0430_get_lcd_width(void);                                                                                                                /* 锟斤拷取ATK-MD0430模锟斤拷LCD锟斤拷锟斤拷 */
-uint16_t atk_md0430_get_lcd_height(void);                                                                                                               /* 锟斤拷取ATK-MD0430模锟斤拷LCD锟竭讹拷 */
-void atk_md0430_backlight_on(void);                                                                                                                     /* 锟斤拷锟斤拷ATK-MD0430模锟斤拷LCD锟斤拷锟斤拷 */
-void atk_md0430_backlight_off(void);                                                                                                                    /* 锟截憋拷ATK-MD0430模锟斤拷LCD锟斤拷锟斤拷 */
-void atk_md0430_display_on(void);                                                                                                                       /* 锟斤拷锟斤拷ATK-MD0430模锟斤拷LCD锟斤拷示 */
-void atk_md0430_display_off(void);                                                                                                                      /* 锟截憋拷ATK-MD0430模锟斤拷LCD锟斤拷示 */
-uint8_t atk_md0430_set_scan_dir(atk_md0430_lcd_scan_dir_t scan_dir);                                                                                    /* 锟斤拷锟斤拷ATK-MD0430模锟斤拷LCD扫锟借方锟斤拷 */
-uint8_t atk_md0430_set_disp_dir(atk_md0430_lcd_disp_dir_t disp_dir);                                                                                    /* 锟斤拷锟斤拷ATK-MD0430模锟斤拷LCD锟斤拷示锟斤拷锟斤拷 */
-atk_md0430_lcd_scan_dir_t atk_md0430_get_scan_dir(void);                                                                                                /* 锟斤拷取ATK-MD0430模锟斤拷LCD扫锟借方锟斤拷 */
-atk_md0430_lcd_disp_dir_t atk_md0430_get_disp_dir(void);                                                                                                /* 锟斤拷取ATK-MD0430模锟斤拷LCD锟斤拷示锟斤拷锟斤拷 */
-void atk_md0430_fill(uint16_t xs, uint16_t ys, uint16_t xe, uint16_t ye, uint16_t color);                                                               /* ATK-MD0430模锟斤拷LCD锟斤拷锟斤拷锟斤拷锟� */
-void atk_md0430_clear(uint16_t color);                                                                                                                  /* ATK-MD0430模锟斤拷LCD锟斤拷锟斤拷 */
-void atk_md0430_draw_point(uint16_t x, uint16_t y, uint16_t color);                                                                                     /* ATK-MD0430模锟斤拷LCD锟斤拷锟斤拷 */
-uint16_t atk_md0430_read_point(uint16_t x, uint16_t y);                                                                                                 /* ATK-MD0430模锟斤拷LCD锟斤拷锟斤拷 */
-void atk_md0430_draw_line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);                                                          /* ATK-MD0430模锟斤拷LCD锟斤拷锟竭讹拷 */
-void atk_md0430_draw_rect(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);                                                          /* ATK-MD0430模锟斤拷LCD锟斤拷锟斤拷锟轿匡拷 */
-void atk_md0430_draw_circle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);                                                                        /* ATK-MD0430模锟斤拷LCD锟斤拷圆锟轿匡拷 */
-void atk_md0430_show_char(uint16_t x, uint16_t y, char ch, atk_md0430_lcd_font_t font, uint16_t color);                                                 /* ATK-MD0430模锟斤拷LCD锟斤拷示1锟斤拷锟街凤拷 */
-void atk_md0430_show_string(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *str, atk_md0430_lcd_font_t font, uint16_t color);            /* ATK-MD0430模锟斤拷LCD锟斤拷示锟街凤拷锟斤拷 */
-void atk_md0430_show_xnum(uint16_t x, uint16_t y, uint32_t num, uint8_t len, atk_md0430_num_mode_t mode, atk_md0430_lcd_font_t font, uint16_t color);   /* ATK-MD0430模锟斤拷LCD锟斤拷示锟斤拷锟街ｏ拷锟缴匡拷锟斤拷锟斤拷示锟斤拷位0 */
-void atk_md0430_show_num(uint16_t x, uint16_t y, uint32_t num, uint8_t len, atk_md0430_lcd_font_t font, uint16_t color);                                /* ATK-MD0430模锟斤拷LCD锟斤拷示锟斤拷锟街ｏ拷锟斤拷锟斤拷示锟斤拷位0 */
-void atk_md0430_show_pic(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t *pic);                                                        /* ATK-MD0430模锟斤拷LCD图片 */
+uint8_t atk_md0430_init(void);
+uint16_t atk_md0430_get_lcd_width(void);
+uint16_t atk_md0430_get_lcd_height(void);
+void atk_md0430_backlight_on(void);
+void atk_md0430_backlight_off(void);
+void atk_md0430_display_on(void);
+void atk_md0430_display_off(void);
+uint8_t atk_md0430_set_scan_dir(atk_md0430_lcd_scan_dir_t scan_dir);
+uint8_t atk_md0430_set_disp_dir(atk_md0430_lcd_disp_dir_t disp_dir);
+atk_md0430_lcd_scan_dir_t atk_md0430_get_scan_dir(void);
+atk_md0430_lcd_disp_dir_t atk_md0430_get_disp_dir(void);
+void atk_md0430_fill(uint16_t xs, uint16_t ys, uint16_t xe, uint16_t ye, uint16_t color);
+void atk_md0430_clear(uint16_t color);
+void atk_md0430_draw_point(uint16_t x, uint16_t y, uint16_t color);
+uint16_t atk_md0430_read_point(uint16_t x, uint16_t y);
+void atk_md0430_draw_line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+void atk_md0430_draw_rect(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+void atk_md0430_draw_circle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
+void atk_md0430_show_char(uint16_t x, uint16_t y, char ch, atk_md0430_lcd_font_t font, uint16_t color);
+void atk_md0430_show_string(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *str, atk_md0430_lcd_font_t font, uint16_t color);
+void atk_md0430_show_xnum(uint16_t x, uint16_t y, uint32_t num, uint8_t len, atk_md0430_num_mode_t mode, atk_md0430_lcd_font_t font, uint16_t color);
+void atk_md0430_show_num(uint16_t x, uint16_t y, uint32_t num, uint8_t len, atk_md0430_lcd_font_t font, uint16_t color);
+void atk_md0430_show_pic(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t *pic);
 
 
 #endif // __ATK_MD0430_H

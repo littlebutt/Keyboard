@@ -215,7 +215,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  display_init();
+  display_ctx ctx = display_init();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -239,25 +239,15 @@ int main(void)
           delay_ms(200);
       }
   }
-  
-  // /* ATK-MD0430模块LCD清屏 */
-  // atk_md0430_clear(ATK_MD0430_BLUE);
-  // /* ATK-MD0430模块LCD显示字符串 */
-  // atk_md0430_show_string(10, 10, ATK_MD0430_LCD_WIDTH, 32, "STM32", ATK_MD0430_LCD_FONT_32, ATK_MD0430_RED);
-  // atk_md0430_show_string(10, 42, ATK_MD0430_LCD_WIDTH, 24, "ATK-MD0430", ATK_MD0430_LCD_FONT_24, ATK_MD0430_RED);
-  // atk_md0430_show_string(10, 66, ATK_MD0430_LCD_WIDTH, 16, "ATOM@ALIENTEK", ATK_MD0430_LCD_FONT_16, ATK_MD0430_RED);
-  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  /* Change Active Screen's background color */
-  lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x003a57), LV_PART_MAIN);
+
+  lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x000000), LV_PART_MAIN);
   lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff), LV_PART_MAIN);
 
-  lv_obj_t * spinner = lv_spinner_create(lv_screen_active());
-  lv_obj_set_size(spinner, 64, 64);
-  lv_obj_align(spinner, LV_ALIGN_BOTTOM_MID, 0, 0);
+  display_layout(ctx);
   while (1)
   {
     // demo_show_cube();
@@ -370,116 +360,6 @@ static void MX_FSMC_Init(void)
 {
 
   /* USER CODE BEGIN FSMC_Init 0 */
-  // GPIO_InitTypeDef gpio_init_struct = {0};
-
-  // __HAL_RCC_FSMC_CLK_ENABLE();
-  // __HAL_RCC_GPIOC_CLK_ENABLE();
-  // __HAL_RCC_GPIOF_CLK_ENABLE();
-  // __HAL_RCC_GPIOB_CLK_ENABLE();
-  // __HAL_RCC_GPIOG_CLK_ENABLE();
-  // __HAL_RCC_GPIOE_CLK_ENABLE();
-  // __HAL_RCC_GPIOD_CLK_ENABLE();
-  // __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_RS_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_RS_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_CS_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_CS_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_RD_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_RD_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_WR_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_WR_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D0_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D0_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D1_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D1_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D2_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D2_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D3_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D3_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D4_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D4_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D5_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D5_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D6_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D6_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D7_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D7_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D8_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D8_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D9_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D9_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D10_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D10_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D11_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D11_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D12_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D12_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D13_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D13_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D14_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D14_GPIO_Port, &gpio_init_struct);
-   
-  //  gpio_init_struct.Pin    = ATK_MD0430_FSMC_D15_Pin;
-  //  gpio_init_struct.Mode   = GPIO_MODE_AF_PP;
-  //  gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;
-  //  HAL_GPIO_Init(ATK_MD0430_FSMC_D15_GPIO_Port, &gpio_init_struct);
 
   /* USER CODE END FSMC_Init 0 */
 

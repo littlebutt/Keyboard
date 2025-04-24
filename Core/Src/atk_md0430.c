@@ -732,7 +732,7 @@ uint8_t atk_md0430_init(void)
     }
     atk_md0430_reg_init();
     atk_md0430_set_disp_dir(ATK_MD0430_LCD_DISP_DIR_0);
-    atk_md0430_clear(ATK_MD0430_BLUE);
+    atk_md0430_clear(ATK_MD0430_WHITE);
     atk_md0430_display_on();
     atk_md0430_backlight_on();
 #if (ATK_MD0430_USING_TOUCH != 0)
