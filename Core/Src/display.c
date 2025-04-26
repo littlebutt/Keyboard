@@ -1,6 +1,8 @@
 #include "display.h"
 #include "atk_md0430.h"
 
+extern display_ctx ctx;
+
 void _flush_cb(lv_display_t * display, const lv_area_t * area, uint8_t * px_map)
 {
     uint16_t * buf16 = (uint16_t *)px_map;
@@ -37,10 +39,12 @@ void _gesture_event(lv_event_t * e)
     lv_dir_t dir = lv_indev_get_gesture_dir(lv_indev_active());
     switch(dir) {
         case LV_DIR_LEFT:
-            // TODO
+            ctx.mode = ctx.mode ? 0 : 1;
+            display_layout(ctx);
             break;
         case LV_DIR_RIGHT:
-            // TODO
+            ctx.mode = ctx.mode ? 0 : 1;
+            display_layout(ctx);
             break;
         default:
             break;
@@ -107,7 +111,6 @@ int display_layout(display_ctx ctx)
     lv_style_set_border_color(&style_btn, lv_color_hex(0xffffff));
     lv_obj_add_style(btnms, &style_btn, LV_PART_ITEMS);
 
-    // 按下时样式
     static lv_style_t style_pressed;
     lv_style_init(&style_pressed);
     lv_style_set_bg_color(&style_pressed, lv_color_hex(0xaaaaaa));
